@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Stream Hub - Latest News & Entertainment</title>
+    <!-- POPADS_AD_CODE_HERE -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .site-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #e50914;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        nav ul li a:hover {
+            color: #e50914;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin: 30px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .hero-content {
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #e50914;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .articles-grid {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .articles-grid h2 {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            color: #333;
+        }
+
+        .article-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .article-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .article-content {
+            padding: 15px;
+        }
+
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #e50914;
+        }
+
+        .article-content p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .sidebar-section {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #e50914;
+            padding-bottom: 5px;
+        }
+
+        .trending-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .trending-item h4 {
+            font-size: 0.95rem;
+            color: #e50914;
+            margin-bottom: 5px;
+        }
+
+        .trending-item p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+            }
+
+            nav ul li {
+                margin: 5px 15px 5px 0;
+            }
+
+            .main-content {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="site-title">Daily Stream Hub</div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Entertainment</a></li>
+                        <li><a href="#">Tech</a></li>
+                        <li><a href="#">Sports</a></li>
+                        <li><a href="#">Lifestyle</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <img src="https://picsum.photos/800/400?random=1" alt="Featured Story">
+            <div class="hero-content">
+                <h1>Hollywood Starlet Reveals Secret Wedding in Tuscany Villa</h1>
+                <p>In an exclusive interview, the actress opens up about her surprise ceremony and future projects.</p>
+            </div>
+        </section>
+
+        <div class="main-content">
+            <section class="articles-grid">
+                <h2>Latest Stories</h2>
+                
+                <article class="article-card">
+                    <img src="https://picsum.photos/400/300?random=2" alt="Tech News">
+                    <div class="article-content">
+                        <h3>New Smartphone Release Breaks Sales Records Worldwide</h3>
+                        <p>The latest flagship device surpasses expectations with innovative camera technology and extended battery life.</p>
+                    </div>
+                </article>
+                
+                <article class="article-card">
+                    <img src="https://picsum.photos/400/300?random=3" alt="Sports Update">
+                    <div class="article-content">
+                        <h3>Underdog Team Stuns Champions in Championship Final</h3>
+                        <p>A thrilling overtime victory secures the title for the young squad in a match that had fans on the edge of their seats.</p>
+                    </div>
+                </article>
+                
+                <article class="article-card">
+                    <img src="https://picsum.photos/400/300?random=4" alt="Celebrity News">
+                    <div class="article-content">
+                        <h3>Fashion Week Highlights: Bold Statements and Sustainable Collections</h3>
+                        <p>Designers showcase eco-friendly materials while celebrities turn heads on the runway in stunning ensembles.</p>
+                    </div>
+                </article>
+                
+                <article class="article-card">
+                    <img src="https://picsum.photos/400/300?random=5" alt="Lifestyle Feature">
+                    <div class="article-content">
+                        <h3>Top 10 Travel Destinations for Digital Nomads This Year</h3>
+                        <p>From bustling cities to serene beaches, these locations offer perfect work-life balance for remote professionals.</p>
+                    </div>
+                </article>
+                
+                <article class="article-card">
+                    <img src="https://picsum.photos/400/300?random=6" alt="Movie Review">
+                    <div class="article-content">
+                        <h3>Blockbuster Sequel Exceeds Expectations with Emotional Depth</h3>
+                        <p>Critics praise the character development and stunning visual effects in the highly anticipated continuation.</p>
+                    </div>
+                </article>
+                
+                <article class="article-card">
+                    <img src="https://picsum.photos/400/300?random=7" alt="Music News">
+                    <div class="article-content">
+                        <h3>Grammy-Nominated Artist Announces Surprise Album Drop</h3>
+                        <p>The unexpected release features collaborations with emerging talents and explores themes of personal growth.</p>
+                    </div>
+                </article>
+            </section>
+
+            <aside class="sidebar">
+                <section class="sidebar-section">
+                    <h3>Trending Now</h3>
+                    <div class="trending-item">
+                        <h4>Viral Dance Challenge Takes Over Social Media</h4>
+                        <p>Millions participate in the latest internet sensation sweeping platforms worldwide.</p>
+                    </div>
+                    <div class="trending-item">
+                        <h4>Royalty Makes Rare Public Appearance at Charity Gala</h4>
+                        <p>The Duchess wore a stunning gown while supporting children's education initiatives.</p>
+                    </div>
+                    <div class="trending-item">
+                        <h4>New Streaming Service Offers Exclusive Original Series</h4>
+                        <p>Subscribers gain access to award-winning productions unavailable elsewhere.</p>
+                    </div>
+                    <div class="trending-item">
+                        <h4>Fitness Influencer Launches Sustainable Activewear Line</h4>
+                        <p>Eco-conscious collection made from recycled ocean plastics receives rave reviews.</p>
+                    </div>
+                    <div class="trending-item">
+                        <h4>Chef's Secret Recipe Book Becomes Bestseller Overnight</h4>
+                        <p>Home cooks eagerly purchase the culinary expert's debut cookbook featuring family favorites.</p>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Advertise</a></li>
+                </ul>
+                <p class="copyright">&copy; 2026 Daily Stream Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
