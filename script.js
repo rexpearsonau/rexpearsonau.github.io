@@ -1,5 +1,3 @@
-=== script.js ===
-```javascript
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -56,6 +54,21 @@ document.addEventListener('DOMContentLoaded', function() {
             img.src = img.dataset.src || img.src;
         });
     }
+
+    // ==========================================
+    // CRITICAL FIX: AUTO-REPLACE BROKEN IMAGES
+    // ==========================================
+    const allImages = document.querySelectorAll('img');
+    allImages.forEach(img => {
+        img.addEventListener('error', function() {
+            // Get first word from alt text to use as keyword
+            const keyword = this.alt ? this.alt.split(' ')[0].toLowerCase().replace(/[^a-z0-9]/g, '') : 'news';
+            // Replace with guaranteed working image from Picsum
+            this.src = `https://picsum.photos/seed/${keyword}/800/600`;
+            // Prevent infinite loop if this also fails
+            this.onerror = null; 
+        });
+    });
     
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -86,4 +99,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-```
